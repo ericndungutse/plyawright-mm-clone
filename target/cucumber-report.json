@@ -1,0 +1,184 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login;login",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Login",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on the login page",
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "they enter valid credentials",
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "they should be redirected to the dashboard",
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 12000000,
+              "error_message": "Error: Missing step: Given the user is on the login page\n   5 |\n   6 |   test('Login', { tag: ['@TestCaseKey=TAT-T1357'] }, async ({ Given, When, Then }) => { \n>  7 |     await Given('the user is on the login page'); \n     |           ^\n   8 |     await When('they enter valid credentials'); \n   9 |     await Then('they should be redirected to the dashboard'); \n  10 |   });"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@TestCaseKey=TAT-T1357"
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "chromium-›-login",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login",
+    "tags": [],
+    "uri": "src\\features\\57.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-(fail)-(cloned);login-(fail)-(cloned)",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Login (Fail) (cloned)",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on the login page and fail",
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "they enter valid credentials",
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "they should be redirected to the dashboard",
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 13000000,
+              "error_message": "Error: Missing step: Given the user is on the login page and fail\n   5 |\n   6 |   test('Login (Fail) (cloned)', { tag: ['@TestCaseKey=TAT-T1359'] }, async ({ Given, When, Then }) => { \n>  7 |     await Given('the user is on the login page and fail'); \n     |           ^\n   8 |     await When('they enter valid credentials'); \n   9 |     await Then('they should be redirected to the dashboard'); \n  10 |   });"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@TestCaseKey=TAT-T1359"
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "chromium-›-login-(fail)-(cloned)",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login (Fail) (cloned)",
+    "tags": [],
+    "uri": "src\\features\\59.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "playwright-home-page;check-title",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Check title",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I am on Playwright home page",
+            "result": {
+              "status": "passed",
+              "duration": 2771000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I click link \"Get started\"",
+            "result": {
+              "status": "passed",
+              "duration": 95000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "I see in title \"Installation\"",
+            "result": {
+              "status": "passed",
+              "duration": 901000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "chromium-›-playwright-home-page",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Playwright Home Page",
+    "tags": [],
+    "uri": "src\\features\\testTitle.feature"
+  }
+]

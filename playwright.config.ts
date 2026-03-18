@@ -1,6 +1,6 @@
-import { defineConfig, devices } from '@playwright/test';
-import { defineBddConfig } from 'playwright-bdd';
-import 'dotenv/config';
+import { defineConfig, devices } from "@playwright/test";
+import { defineBddConfig, cucumberReporter } from "playwright-bdd";
+import "dotenv/config";
 
 /**
  * Read environment variables from file.
@@ -14,9 +14,15 @@ import 'dotenv/config';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir : defineBddConfig({
-    features: 'src/features/sample.feature',
-    steps: 'src/steps/steps.ts',
+
+
+//   fail-on-gen — default behaviour, fails during bddgen if steps are missing (what you're experiencing now)
+// fail-on-run — generates the test file but the test fails at runtime
+// skip-scenario — generates a test.skip() for scenarios with missing steps, allowing all other scenarios to run normally
+  testDir: defineBddConfig({
+    features: "src/features/*.feature",
+    steps: "src/steps/*.ts",
+    missingSteps: 'fail-on-run',
   }),
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -27,36 +33,49 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    cucumberReporter("json", {
+      outputFile: "target/cucumber-report.json",
+    }),
+    cucumberReporter("html", {
+      outputFile: "target/cucumber-report.html",
+    }),
+    ["html", { open: "never" }],
+  ],
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
     // Emulates the browser locale.
-    locale: 'de-DE',
+    locale: "de-DE",
 
     // Run browser in headless mode.
     headless: false,
 
     // Emulates the browser timezone.
-    timezoneId: 'Europe/Berlin',
+    timezoneId: "Europe/Berlin",
   },
 
   /* Configure projects for major browsers */
   projects: [
+    // {
+    //   name: 'setup',
+    //   testDir: './src/setup-steps', // <-- set testDir for setup project
+    //   testMatch: /auth\.setup\.ts/,
+    // },
     {
-      name: 'setup',
-      testDir: './src/setup-steps', // <-- set testDir for setup project
-      testMatch: /auth\.setup\.ts/,
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
-    {
-      name: 'chromium',
-      dependencies: ['setup'],
-      use: { ...devices['Desktop Chrome'], storageState: 'playwright/.auth/user.json', },
-    },
+    // {
+    //   name: 'chromium',
+    //   dependencies: ['setup'],
+    //   use: { ...devices['Desktop Chrome'], storageState: 'playwright/.auth/user.json', },
+    // },
 
     /*{
       name: 'firefox',

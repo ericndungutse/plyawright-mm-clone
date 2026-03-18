@@ -3,7 +3,10 @@
   "version": "4.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx bddgen && npx playwright test",
+    "test:ignore": "npx bddgen --ignore 'features/broken/**' && npx playwright test"
+  },
   "keywords": [],
   "author": "rainer.krueger@milesandmore.com",
   "license": "Copyright Miles & More GmbH",
